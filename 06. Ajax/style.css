@@ -1,0 +1,49 @@
+html {
+    box-sizing: border-box;
+    background: #ffc600;
+    font-family: 'Segoe UI';
+    font-size: 20px;
+    font-weight: 200;
+}
+
+input {
+    width: 100%;
+    padding: 20px;
+}
+
+.search-form {
+    max-width: 400px;
+    margin: 50px auto;
+}
+
+.suggestions {
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.suggestions li {
+    background: white;
+    border-bottom: 1px solid #d8d8d8;
+    margin: 0;
+    padding: 20px;
+    transition:background 0.2s;
+    display: flex;
+    justify-content: space-between;
+    text-transform: capitalize;
+}
+
+
+.suggestions li:nth-child(odd) {
+    transform: perspective(100px) rotateX(3deg) translateY(2px);
+    background: linear-gradient(to bottom,  #ffffff 0%,#EFEFEF 100%);
+}
+.suggestions li:nth-child(even) {
+    transform: perspective(100px) rotateX(-3deg) translateY(3px);
+    background: linear-gradient(to top,  #ffffff 0%,#EFEFEF 100%);
+}
+
+
+.hl {
+    background: #ffc600;
+}
