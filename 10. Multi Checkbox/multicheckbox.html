@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Multi Checkbox</title>
+</head>
+
+<body>
+  <div class="inbox">
+    <div class="item">
+      <input type="checkbox">
+      <p>This is an input layout</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>This is an input layout</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>This is an input layout</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>This is an input layout</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>This is an input layout</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>This is an input layout</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>This is an input layout</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>This is an input layout</p>
+    </div>
+    <div class="item">
+      <input type="checkbox">
+      <p>This is an input layout</p>
+    </div>
+  </div>
+
+  <style>
+    html {
+      font-family: sans-serif;
+      background-color: #ffc600;
+    }
+
+    .inbox {
+      max-width: 400px;
+      margin: 50px auto;
+      background: white;
+      border-radius: 5px;
+      box-shadow: 10px 10px 0 rgba(0,0,0,0.1);
+    }
+
+    .item {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #0FDDf1;
+    }
+
+    .item:last-child {
+      border-bottom: 0;
+    }
+
+    input:checked + p {
+      background: #0FDDf1;
+      text-decoration: line-through;
+
+    }
+
+    input[type="checkbox"] {
+      margin: 20px;
+    }
+
+    p {
+      margin: 0;
+      padding: 20px;
+      transition:background 0.2s;
+      flex: 1;
+      font-family: 'helvetica neue';
+      font-size: 20px;
+      font-weight: 200;
+      border-left: 1px solid #0FDDf1;
+    }
+  </style>
+
+  <script>
+  </script>
+
+</body>
+
+</html>
