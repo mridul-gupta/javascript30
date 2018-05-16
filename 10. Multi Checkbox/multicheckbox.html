@@ -8,41 +8,52 @@
 
 <body>
   <div class="inbox">
+    <div class="ritem">
+      <input type="radio" name="button" value="1">
+      <p>Select All</p>
+    </div>
+    <div class="ritem">
+      <input type="radio" name="button" value="2">
+      <p>Unselect All</p>
+    </div>
+  </div>
+
+  <div class="inbox">
     <div class="item">
       <input type="checkbox">
-      <p>This is an input layout</p>
+      <p>This is an input layout 1</p>
     </div>
     <div class="item">
       <input type="checkbox">
-      <p>This is an input layout</p>
+      <p>This is an input layout 2</p>
     </div>
     <div class="item">
       <input type="checkbox">
-      <p>This is an input layout</p>
+      <p>This is an input layout 3</p>
     </div>
     <div class="item">
       <input type="checkbox">
-      <p>This is an input layout</p>
+      <p>This is an input layout 4</p>
     </div>
     <div class="item">
       <input type="checkbox">
-      <p>This is an input layout</p>
+      <p>This is an input layout 5</p>
     </div>
     <div class="item">
       <input type="checkbox">
-      <p>This is an input layout</p>
+      <p>This is an input layout 6</p>
     </div>
     <div class="item">
       <input type="checkbox">
-      <p>This is an input layout</p>
+      <p>This is an input layout 7</p>
     </div>
     <div class="item">
       <input type="checkbox">
-      <p>This is an input layout</p>
+      <p>This is an input layout 8</p>
     </div>
     <div class="item">
       <input type="checkbox">
-      <p>This is an input layout</p>
+      <p>This is an input layout 9</p>
     </div>
   </div>
 
@@ -58,6 +69,12 @@
       background: white;
       border-radius: 5px;
       box-shadow: 10px 10px 0 rgba(0,0,0,0.1);
+    }
+
+    .ritem {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #0FDDf1;
     }
 
     .item {
@@ -76,8 +93,8 @@
 
     }
 
-    input[type="checkbox"] {
-      margin: 20px;
+    input[type="checkbox"],[type="radio"] {
+      zoom: 3.0;
     }
 
     p {
@@ -93,6 +110,51 @@
   </style>
 
   <script>
+    const checkboxes = document.querySelectorAll('.inbox input[type="checkbox"]');
+
+    let lastChecked;
+
+    function handleClick(e) {
+      if (e.shiftKey && this.checked) {
+        console.log('Shift & Checked');
+
+        let inBetween = false;
+        checkboxes.forEach(checkbox => {
+          if (checkbox === this || checkbox === lastChecked) {
+            inBetween = !inBetween;
+          }
+
+          if (inBetween) {
+            checkbox.checked = true;
+            //checkbox.checked = !checkbox.checked;
+          }
+        });
+      }
+      lastChecked = this;
+    }
+    checkboxes.forEach(checkbox => checkbox.addEventListener('click', handleClick));
+
+
+    const radios = document.querySelectorAll('.inbox input[type="radio"]');
+    console.log(radios);
+
+    function handleRadioClick(e) {
+      console.log(e.value);
+      if(e.value === "1") {
+        // select all
+        checkboxes.forEach(checkbox => checkbox.checked = true);
+      } else if (e.value === "2") {
+        // unselect all
+        checkboxes.forEach(checkbox => checkbox.checked = false);
+      }
+    }
+
+    for(radio in radios) {
+      radios[radio].onclick = function() {
+        handleRadioClick(this);
+      }
+    }
+
   </script>
 
 </body>
