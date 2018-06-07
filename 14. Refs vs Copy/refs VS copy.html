@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Ref vs Copy</title>
+</head>
+
+<body>
+  <script>
+    let age = 100;
+    let age2 = age;
+
+    console.log(age, age2);
+    age = 200;
+    console.log(age, age2);
+
+    let name = 'Mridul';
+    let name2 = 'Gupta';
+    console.log(name, name2);
+    name = 'MRIDUL';
+    console.log(name, name2);
+
+
+    const players = ['jai','veeru','sambha','gabbar'];
+    const team = players;
+
+    team[3] = 'gabbarva';
+
+
+    const team2 = players.slice();
+    team2[3] = 'ramukaka';
+
+    const team3 = [].concat(players);
+
+    const team4 = [...players];
+
+    const team5 = Array.from(players);
+
+    // Objects
+
+    const  person = {
+      name: 'Mridul Gupta',
+      age: 99
+    }
+
+    const captain = person;
+    captain.age = 199;
+
+    const captain2 = Object.assign({}, person, {age: 199});
+    captain2.age = 299;
+
+    //multi level Objects
+    const mridul = {
+      name: 'Mridul',
+      age: 39,
+      social: {
+        twitter: 'mridulgupta',
+        google: 'mridul.gupta',
+        facebook: 'not-registered'
+      }
+    }
+
+    const copyOf = Object.assign({}, mridul);
+
+  </script>
+
+</body>
+</html>
